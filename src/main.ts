@@ -1,5 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe } from "@nestjs/common";
+import { IoAdapter } from "@nestjs/platform-socket.io";
 import * as helmet from "fastify-helmet";
 import * as multer from "fastify-multer";
 import {
@@ -7,12 +8,14 @@ import {
 	NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 import { AppModule } from "./app.module";
+import { SocketIoAdapter } from "./common/socket-adapter/socket.adapter";
 
 async function bootstrap() {
 	const app = await NestFactory.create<NestFastifyApplication>(
 		AppModule,
 		new FastifyAdapter(),
 	);
+	app.useWebSocketAdapter(new SocketIoAdapter(app));
 	app.getHttpAdapter()
 		.getInstance()
 		.register(multer.contentParser)
