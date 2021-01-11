@@ -1,6 +1,5 @@
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe } from "@nestjs/common";
-import { IoAdapter } from "@nestjs/platform-socket.io";
 import * as helmet from "fastify-helmet";
 import * as multer from "fastify-multer";
 import {
