@@ -1,3 +1,3 @@
 export class AuthenticateDto {
-    tel: number;
+	tel: number;
 }

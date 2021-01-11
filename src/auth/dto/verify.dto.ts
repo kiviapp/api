@@ -1,4 +1,4 @@
 export class VerifyDto {
-    tel: number;
-    code: number;
+	tel: number;
+	code: number;
 }
